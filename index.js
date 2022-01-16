@@ -21,6 +21,17 @@ async function run() {
     try {
         await client.connect()
         const database = client.db('bloodBank')
+        const usersCollection = database.collection('users')
+        const donorsCollection = database.collection('donors')
+
+
+        // add donor to database
+        app.post('/donors', async (req, res) => {
+            const donor = req.body;
+            // const result=await donorsCollection.insertOne(donor)
+            // res.send(result)
+            console.log(donor)
+        })
     }
     finally {
         // await client.close()
